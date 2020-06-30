@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "868680f3-c3a9-4ff0-8774-eb5b11cc1cb9",
+		"name": "SW CRUP API PROYECTO DONACIONES",
+		"description": "Rutas Api primer avance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Donaciones",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/Donaciones/del/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Donaciones/del/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Donaciones",
+								"del",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Eliminar donaciones"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/Donaciones/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Donaciones/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Donaciones",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/Donaciones/add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Donaciones/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Donaciones",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/Donaciones/upd/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Donaciones/upd/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Donaciones",
+								"upd",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "501f483d-24dd-4012-a1e7-467ebf705dd2",
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/Donaciones/upd/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Donaciones/one/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Donaciones",
+								"one",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "cacc45ab-0bb9-4145-8487-a7810012753b",
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/usuarios/del/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/del/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"del",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Eliminar usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/usuarios/one/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/one/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"one",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Listar o buscar usuario por id"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/usuarios/new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Breydi Almendares",
+									"description": "Nombre",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "almendaresbreydi@gmail.com",
+									"description": "Correo",
+									"type": "text"
+								},
+								{
+									"key": "usuario",
+									"value": "breydi31",
+									"description": "Usuario",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "solangel31",
+									"description": "Contraseña",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"new"
+							]
+						},
+						"description": "Crear un nuevo usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/usuarios/upd/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Breydi Almendares",
+									"description": "Nombre",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "breyalmendares@gmail.com",
+									"description": "Correo",
+									"type": "text"
+								},
+								{
+									"key": "usuario",
+									"value": "judith99",
+									"description": "Usuario ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "solangel31",
+									"description": "Contraseña",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/upd/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"upd",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualizar un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/usuarios/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"all"
+							]
+						},
+						"description": "Listar todos los usuarios"
+					},
+					"response": []
+				}
+			],
+			"description": "Rutas de /api/usuarios",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Sec",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/Sec/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Sec/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Sec",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/Sec/signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/Sec/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"Sec",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

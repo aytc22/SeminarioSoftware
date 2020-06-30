@@ -27,4 +27,8 @@ router.put('/upd/:id', function(req, res){
     return res.status(200).json({"Mensaje":"FUNCIONA"});
 });//Ruta PUT /api/Donaciones/upd/:id
 
+router.delete('/del/:id', function(req, res){
+    return res.status(200).json({"Mensaje":"FUNCIONA"});
+});//Ruta DELETE /api/Donaciones/del/:id
+
 module.exports = router;
