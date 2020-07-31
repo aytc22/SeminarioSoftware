@@ -14,7 +14,7 @@ router.get("/all", async(req, res)=>{
     res.status(200).json(usu);
   } catch (err) {
     console.log(err);
-    res.status(500).json({"Error":"Algo salio mal."});
+    res.status(500).json({"Error":"Algo salió mal."});
   }
 });//GET /api/Personas/all
 
@@ -25,7 +25,7 @@ router.get("/one/:id", async(req, res)=>{
     res.status(200).json(id);
   }catch(err){
     console.log(err);
-    res.status(500).json({"ERROR":"Algo salio mal."});
+    res.status(500).json({"ERROR":"Algo salió mal."});
   }
 });//GET /api/Personas/one/:id
 
@@ -36,7 +36,7 @@ router.post("/new", async(req, res)=>{
     res.status(200).json(res);
   } catch(err){
     console.log(err);
-    res.status(500).json({ "ERROR": "Algo salio mal." });
+    res.status(500).json({ "ERROR": "Algo salió mal." });
   }
 });//POST /api/Personas/new
 
@@ -49,7 +49,7 @@ router.put("/upd/:id", async(req, res)=>{
   perModel.update(data, (err, upd)=>{
     if(err){
       console.log(err);
-      return res.status(500).json({"error":"error"});
+      return res.status(500).json({"ERROR":"Algo salió mal."});
     }
     return res.status(200).json(upd);
   });
@@ -62,7 +62,7 @@ router.delete("/del/:id", async(req, res)=>{
     res.status(200).json(result);
   }catch(err){
   console.log(err);
-  res.status(500).json({ "Error": "Algo salio mal." });
+  res.status(500).json({ "Error": "Algo salió mal." });
   }
 });//DELETE /api/usuarios/del/:id
 

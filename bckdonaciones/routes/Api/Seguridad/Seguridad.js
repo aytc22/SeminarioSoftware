@@ -25,7 +25,7 @@ router.get('/all', async(req, res)=>{
       res.status(200).json(usu);
     }catch (err){
       console.log(err);
-      res.status(500).json({"ERROR":"Algo salio mal"});
+      res.status(500).json({"ERROR":"Algo salió mal"});
     }
 }); // get /
 
@@ -47,7 +47,7 @@ router.post('/login', async(req, res)=>{
       res.status(401).json({"ERROR":"Credenciales incorrectas"});
     }
   }catch(err){
-    res.status(500).json({"ERROR":"Algo salio mal"});
+    res.status(500).json({"ERROR":"Algo salió mal"});
   }
 }); //Ruta POST /api/Sec/login
 
@@ -57,7 +57,7 @@ router.post('/signin', async(req, res)=>{
     console.log(res);
     res.status(200).json({"Mensaje":"Usuario creado"});
   }catch(err){
-    res.status(500).json({"ERROR":"Algo salio mal"});
+    res.status(500).json({"ERROR":"Algo salió mal"});
   }
    
     

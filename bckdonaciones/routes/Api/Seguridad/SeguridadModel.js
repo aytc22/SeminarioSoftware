@@ -12,7 +12,7 @@ module.exports=class{
         console.log('Creando indices');
         await usuCol.cresteIndex({"Correo":1},{unique:true});
       }
-      console.log("Coleccion de seguridad creada");
+      console.log("Colección de seguridad creada");
       return;
     } else {
       return;
@@ -23,7 +23,7 @@ module.exports=class{
       const{correo, contra, nomcom} = data;
       try{
           let nueUsu = {
-              "Correo_electronico" : correo,
+              "Correo_electrónico" : correo,
               "Contraseña" : bcrypt.hashSync(contra, 10),
               "Nombre_Completo" : nomcom,
               "Fecha_creado" : new Date().getTime()
@@ -38,7 +38,7 @@ module.exports=class{
    
   static async getByEmail(correo){
       try{
-          let filter = {"Correo_electronico" : correo};
+          let filter = {"Correo_electrónico" : correo};
           let usu = await usuCol.findOne(filter);
           return usu;
       }catch (err){

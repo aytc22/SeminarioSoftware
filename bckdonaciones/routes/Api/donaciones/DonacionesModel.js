@@ -1,59 +1,58 @@
 const db = require('../../DB/db');
 const ObjectId = require('mongodb').ObjectId;
 
-let usuCol;
+let donaCol;
 
 module.exports = class{
     static async initModel(){
-        if(!usuCol){
+        if(!donaCol){
             let _db = await db.getDB();
-            usuCol = await _db.collection('Personas');
-            console.log("Colección de Personas creada");
+            donaCol = await _db.collection('Donaciones');
+            console.log("Colección de Donaciones creada");
             return;
         }else{
             return;
         }
     }
 
-    static async getAll (){
+    static async getAll(){
         try{
-            if(usuCol){
-                let muestra = await usuCol.find();
-                return muestra.toArray();
+            if(donaCol){
+                let mostrar = await donaCol.find();
+                return mostrar.toArray();
             }
             return[];
         }catch(err){
             console.log(err);
-            return err;
         }
     }
 
-    static async addOne( id, nombre, telefono, direccion) {
+    static async addOne( id, nombre, correo, celular) {
         try{
-          const nueUsu = {Id:id, NombreComplet:nombre, Telefono:telefono, Dirección:direccion};
-          const res = await usuCol.insertOne(nueUsu);
+          const nueDona = {Id:id, NombreCompleto:nombre, Correo:correo, Celular:celular};
+          const res = await donaCol.insertOne(nueDona);
           return res;
         }catch(err){
           console.log(err);
           return err;
         }
       }
-  
+    
     static async getOne(id) {
         try {
           let filter = { "_id": new ObjectId(id)};
-          const res = await usuCol.findOne(filter);
-          return res;
+          const res = await donaCol.findOne(filter);
+          return result;
         } catch (err) {
           console.log(err);
           return err;
         }
       }
- 
+
     static async deleteOne(id){
         try{
           let filter = {"_id": new ObjectId(id)};
-          const res = await usuCol.deleteOne(filter);
+          const res = await donaCol.deleteOne(filter);
           return res;
         }catch(err){
           console.log(err);
@@ -61,14 +60,24 @@ module.exports = class{
         }
       }
 
-      static update = ( dataToUpdate , handler )=>{
-        var { _id, nombre, telefono, direccion } = dataToUpdate;
+    static async updateOne(id){
+          try{
+              let filter = {"_id": new ObjectId(id)};
+              const res = await donaCol.updateOne(filter);
+              return res;
+          }catch(err){
+              console.log(err);
+              return err;
+          }
+      }
+
+    static update = ( dataToUpdate , handler )=>{
+        var { _id, nombre, celular, } = dataToUpdate;
         var query = { "_id": new ObjectID(_id)};
         var updateCommad = {
           "$set":{
-            Nombre: nombre,
-            Telefono: telefono,
-            Dirección: direccion
+            NombreCompleto: nombre,
+            Celular: celular
           },
           "$inc" :{
             "updates": 1
