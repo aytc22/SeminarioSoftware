@@ -32,8 +32,8 @@ router.get("/one/:id", async(req, res)=>{
 router.post("/new", async(req, res)=>{
   try {
     let {id, nombre, telefono, direccion } = req.body;
-    const res = await perModel.addOne(id, nombre, telefono, direccion);
-    res.status(200).json(res);
+    const rest = await perModel.addOne(id, nombre, telefono, direccion);
+    res.status(200).json(rest);
   } catch(err){
     console.log(err);
     res.status(500).json({ "ERROR": "Algo salió mal." });
@@ -58,8 +58,8 @@ router.put("/upd/:id", async(req, res)=>{
 router.delete("/del/:id", async(req, res)=>{
   try {
     const {id} = req.params;
-    const res = await perModel.deleteOne(id);
-    res.status(200).json(result);
+    const rest = await perModel.deleteOne(id);
+    res.status(200).json(rest);
   }catch(err){
   console.log(err);
   res.status(500).json({ "Error": "Algo salió mal." });

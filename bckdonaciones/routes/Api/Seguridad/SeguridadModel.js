@@ -10,7 +10,7 @@ module.exports=class{
       usuCol = await _db.collection('Seguridad');
       if(process.env.ENSUREUDEX == "1"){
         console.log('Creando indices');
-        await usuCol.cresteIndex({"Correo":1},{unique:true});
+        await usuCol.createIndex({"Correo_electrónico":1},{unique:true});
       }
       console.log("Colección de seguridad creada");
       return;

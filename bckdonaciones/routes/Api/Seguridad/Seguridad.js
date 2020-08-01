@@ -29,13 +29,13 @@ router.get('/all', async(req, res)=>{
     }
 }); // get /
 
-router.post('/login', async(req, res)=>{
+router.get('/login', async(req, res)=>{
   try{
-    var {correo, contra, nomcom} = req.body;
+    var {correo, contra} = req.body;
     var usu = await segModel.getByEmail(correo);
     if(await segModel.comparePassword(contra, usu.contraseña)){
-      const {correo, _id} = usu;
-      const jUsu = {correo, _id};
+      const {correo, _id, nomcom} = usu;
+      const jUsu = {correo, _id, nomcom};
       console.log(jUsu);
       let token = jwt.sign(jUsu, 'NosVaACostarHacerEstePincheProyecto', {expiresIn: '60m'});
       res.status(200).json(
@@ -53,8 +53,8 @@ router.post('/login', async(req, res)=>{
 
 router.post('/signin', async(req, res)=>{
   try{
-    var res = await segModel.addNew(req.body);
-    console.log(res);
+    var resu = await segModel.addNew(req.body);
+    console.log(resu);
     res.status(200).json({"Mensaje":"Usuario creado"});
   }catch(err){
     res.status(500).json({"ERROR":"Algo salió mal"});

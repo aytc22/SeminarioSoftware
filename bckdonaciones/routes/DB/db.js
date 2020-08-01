@@ -8,7 +8,7 @@ module.exports = class {
       return _db;
     } else {
       try {
-        let client = await mongoClient.connect(process.env.MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        let client = await mongoClient.connect(process.env.MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true});
         _db = client.db(process.env.MONGODBDBNAME);
         return _db;
       }catch(e){
@@ -19,19 +19,3 @@ module.exports = class {
   }
 }
 
-/*var MongoClient = require('mongodb').MongoClient;
-var MongoUri = 'mongodb://127.0.0.1:27017';
-var MongoDB = 'RecolectaHNDB';
-var MongoOpt = { useUnifiedTopology: true };
-
-
-
-MongoClient.connect(MongoUri, MongoOpt, (err, conn) => {
-    if (err) {
-        console.log(err);
-        process.exit(1);
-    }
-
-    var _db = conn.db(MongoDB);
-    return _db;
-});*/

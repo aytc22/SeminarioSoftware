@@ -30,7 +30,7 @@ module.exports = class{
 
     static async addOne( id, nombre, telefono, direccion) {
         try{
-          const nueUsu = {Id:id, NombreComplet:nombre, Telefono:telefono, Dirección:direccion};
+          const nueUsu = {Id:id, NombreCompleto:nombre, Telefono:telefono, Dirección:direccion};
           const res = await usuCol.insertOne(nueUsu);
           return res;
         }catch(err){
@@ -66,7 +66,7 @@ module.exports = class{
         var query = { "_id": new ObjectID(_id)};
         var updateCommad = {
           "$set":{
-            Nombre: nombre,
+            NombreCompleto: nombre,
             Telefono: telefono,
             Dirección: direccion
           },
