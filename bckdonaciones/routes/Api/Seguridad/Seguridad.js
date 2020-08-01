@@ -29,14 +29,13 @@ router.get('/all', async(req, res)=>{
     }
 }); // get /
 
-router.get('/login', async(req, res)=>{
+router.post('/login', async(req, res)=>{
   try{
-    var {correo, contra} = req.body;
+    var {correo, contraseña} = req.body;
     var usu = await segModel.getByEmail(correo);
-    if(await segModel.comparePassword(contra, usu.contraseña)){
+    if(await segModel.comparePassword(contraseña, usu.contraseña)){
       const {correo, _id, nomcom} = usu;
       const jUsu = {correo, _id, nomcom};
-      console.log(jUsu);
       let token = jwt.sign(jUsu, 'NosVaACostarHacerEstePincheProyecto', {expiresIn: '60m'});
       res.status(200).json(
         {
@@ -47,6 +46,7 @@ router.get('/login', async(req, res)=>{
       res.status(401).json({"ERROR":"Credenciales incorrectas"});
     }
   }catch(err){
+    console.log(err);
     res.status(500).json({"ERROR":"Algo salió mal"});
   }
 }); //Ruta POST /api/Seguridad/login

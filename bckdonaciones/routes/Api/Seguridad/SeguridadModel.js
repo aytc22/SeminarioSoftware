@@ -2,6 +2,11 @@ const db = require('../../DB/db');
 var ObjectID = require('mongodb').ObjectID;
 const bcrypt = require('bcrypt');
 
+function pswdGenerator(contRaw){
+    var hashedPswd = bcrypt.hashSync(contRaw, 10);
+    return hashedPswd;
+}
+
 let usuCol;
 module.exports=class{
   static async initModel(){
@@ -10,7 +15,7 @@ module.exports=class{
       usuCol = await _db.collection('Seguridad');
       if(process.env.ENSUREUDEX == "1"){
         console.log('Creando indices');
-        await usuCol.createIndex({"Correo_electrónico":1},{unique:true});
+        await usuCol.createIndex({"correo":1},{unique:true});
       }
       console.log("Colección de seguridad creada");
       return;
@@ -33,13 +38,13 @@ module.exports=class{
     }
 
   static async addNew(data){
-      const{correo, contra, nomcom} = data;
+      const{correo, contraseña, nombre} = data;
       try{
           let nueUsu = {
-              "Correo_electrónico" : correo,
-              "Contraseña" : bcrypt.hashSync(contra, 8),
-              "Nombre_Completo" : nomcom,
-              "Fecha_creado" : new Date().getTime()
+              "correo" : correo,
+              "contraseña" : pswdGenerator(contraseña),
+              "nombre" : nombre,
+              "Fechacreado" : new Date().getTime() + (1000 * 60 * 60 * 24 * 90)
           }
           let rest = await usuCol.insertOne(nueUsu);
           return rest;
@@ -51,7 +56,7 @@ module.exports=class{
    
   static async getByEmail(correo){
       try{
-          let filter = {"Correo_electrónico" : correo};
+          let filter = {"correo" : correo};
           let usu = await usuCol.findOne(filter);
           return usu;
       }catch (err){
