@@ -19,17 +19,30 @@ module.exports=class{
     }
   }
 
+  static async getAll (){
+        try{
+            if(usuCol){
+                let muestra = await usuCol.find();
+                return muestra.toArray();
+            }
+            return[];
+        }catch(err){
+            console.log(err);
+            return err;
+        }
+    }
+
   static async addNew(data){
       const{correo, contra, nomcom} = data;
       try{
           let nueUsu = {
               "Correo_electrónico" : correo,
-              "Contraseña" : bcrypt.hashSync(contra, 10),
+              "Contraseña" : bcrypt.hashSync(contra, 8),
               "Nombre_Completo" : nomcom,
               "Fecha_creado" : new Date().getTime()
           }
-          let res = await usuCol.insertOne(nueUsu);
-          return res;
+          let rest = await usuCol.insertOne(nueUsu);
+          return rest;
       } catch (err){
           console.log(err);
           return err;

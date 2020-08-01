@@ -53,7 +53,7 @@ router.put("/upd/:id", async(req, res)=>{
     }
     return res.status(200).json(upd);
   });
-});//PUT /api/usuarios/upd/:id
+});//PUT /api/Personas/upd/:id
 
 router.delete("/del/:id", async(req, res)=>{
   try {
@@ -64,7 +64,7 @@ router.delete("/del/:id", async(req, res)=>{
   console.log(err);
   res.status(500).json({ "Error": "Algo salió mal." });
   }
-});//DELETE /api/usuarios/del/:id
+});//DELETE /api/Personas/del/:id
 
 
 module.exports = router;

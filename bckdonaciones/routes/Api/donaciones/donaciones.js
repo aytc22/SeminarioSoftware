@@ -41,8 +41,8 @@ router.get('/one/:id', async(req, res)=>{
 router.post('/add', async(req, res)=>{
     try {
         let {id, nombre, correo, celular } = req.body;
-        const res = await model.addOne(id, nombre, correo, celular);
-        res.status(200).json(res);
+        const rest = await donaModel.addOne(id, nombre, correo, celular);
+        res.status(200).json(rest);
       } catch(err){
         console.log(err);
         res.status(500).json({"ERROR":"Algo salió mal."});
@@ -55,7 +55,7 @@ router.put('/upd/:id', async(req, res)=>{
       "_id": id,
       ...req.body
     };
-    perModel.update(data, (err, upd)=>{
+    donaModel.update(data, (err, upd)=>{
       if(err){
         console.log(err);
         return res.status(500).json({"ERROR":"Algo salió mal."});
@@ -67,8 +67,8 @@ router.put('/upd/:id', async(req, res)=>{
 router.delete('/del/:id', async(req, res)=>{
     try {
         const {id} = req.params;
-        const res = await model.deleteOne(id);
-        res.status(200).json(res);
+        const rest = await donaModel.deleteOne(id);
+        res.status(200).json(rest);
     }catch(err){
       console.log(err);
       res.status(500).json({"ERROR":"Algo salió mal."});

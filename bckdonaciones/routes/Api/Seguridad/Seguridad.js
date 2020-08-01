@@ -49,18 +49,18 @@ router.get('/login', async(req, res)=>{
   }catch(err){
     res.status(500).json({"ERROR":"Algo salió mal"});
   }
-}); //Ruta POST /api/Sec/login
+}); //Ruta POST /api/Seguridad/login
 
 router.post('/signin', async(req, res)=>{
   try{
     var resu = await segModel.addNew(req.body);
-    console.log(resu);
-    res.status(200).json({"Mensaje":"Usuario creado"});
+    res.status(200).json(resu);
   }catch(err){
+    console.log(err);
     res.status(500).json({"ERROR":"Algo salió mal"});
   }
    
     
-});//Ruta POST /api/Sec/signin
+});//Ruta POST /api/Seguridad/signin
 
 module.exports = router;

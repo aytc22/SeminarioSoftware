@@ -36,6 +36,6 @@ const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 
 router.use('/Personas', jwtAuthMiddleware, usuariosRouter);
-router.use('/Donaciones', jwtAuthMiddleware, donacionesRouter);
+router.use('/Donaciones', donacionesRouter);
 
 module.exports = router;
