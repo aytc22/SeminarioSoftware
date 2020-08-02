@@ -24,7 +24,7 @@ passport.use(
 var usuariosRouter = require('./Personas/Personas');
 var donacionesRouter = require('./Donaciones/Donaciones');
 var secRouter = require('./Seguridad/Seguridad');
-const { Passport } = require('passport');
+//const { Passport } = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

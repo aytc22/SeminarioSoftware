@@ -34,9 +34,9 @@ router.post('/login', async(req, res)=>{
     var {correo, contraseña} = req.body;
     var usu = await segModel.getByEmail(correo);
     if(await segModel.comparePassword(contraseña, usu.contraseña)){
-      const {correo, _id, nomcom} = usu;
-      const jUsu = {correo, _id, nomcom};
-      let token = jwt.sign(jUsu, 'NosVaACostarHacerEstePincheProyecto', {expiresIn: '60m'});
+      const {correo, _id, nombre} = usu;
+      const jUsu = {correo, _id, nombre};
+      let token = jwt.sign(jUsu, 'NosVaACostarHacerEstePincheProyecto', {expiresIn: '1600m'});
       res.status(200).json(
         {
           ...jUsu, jwt: token

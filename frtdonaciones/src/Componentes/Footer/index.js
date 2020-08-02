@@ -13,8 +13,8 @@ export default ({ auth } )=>{
         <nav>
           <ul>
             <li><NavLink to="/" ><MdHome size="2em" /></NavLink></li>
-            <li><NavLink to="/Login">Login</NavLink></li>
-            <li><NavLink to="/SingIn">SingIn</NavLink></li>
+            <li><NavLink to="/Donaciones">Donación</NavLink></li>
+            <li><NavLink to="/Personas">Registro</NavLink></li>
           </ul>
         </nav>
       </footer>

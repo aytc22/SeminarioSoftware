@@ -25,6 +25,9 @@ export default class extends Component {
       >
         <body>
           <h2>Quedate en Casa</h2>
+          <p></p>
+          <p></p>
+          <p></p>
         </body>
  
       </Page>

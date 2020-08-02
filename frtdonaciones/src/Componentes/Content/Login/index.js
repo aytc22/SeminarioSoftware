@@ -8,8 +8,8 @@ export default class extends Component {
   constructor() {
     super();
     this.state = {
-      email:'',
-      password:'',
+      correo:'',
+      contraseña:'',
       redirectTo:false
     }
 
@@ -22,7 +22,7 @@ export default class extends Component {
   }
   async onClickButton(e) {
       try{
-        let userData = await login(this.state.email, this.state.password);
+        let userData = await login(this.state.correo, this.state.contraseña);
         const {jwt} = userData;
         delete userData.jwt;
         this.setState({ "redirectTo": true }, () => { this.props.auth.login(userData, jwt);});
@@ -32,7 +32,7 @@ export default class extends Component {
   }
   render() {
     if(this.state.redirectTo){
-      const tourl = (this.props.location.state) ? this.props.location.state.from.pathname: '/';
+      const tourl = (this.props.location.state) ? this.props.location.state.from.pathname: '/login';
       return(
         <Redirect to={tourl}/>
       )
@@ -44,14 +44,14 @@ export default class extends Component {
         title={"Iniciar Sesión"}
         auth = {this.props.auth}
       >
-        <h2>Iniciar Sesión</h2>
+       
         <fieldset>
         <label>Correo Electrónico</label>
-        <input type="email" name="email" onChange={this.onTextChange} value={this.state.email} />
+        <input type="email" name="correo" onChange={this.onTextChange} value={this.state.correo} />
         </fieldset>
         <fieldset>
-          <label>Password</label>
-          <input type="password" name="password" onChange={this.onTextChange} value={this.state.password} />
+          <label>Contraseña</label>
+          <input type="password" name="contraseña" onChange={this.onTextChange} value={this.state.contraseña} />
         </fieldset>
         <button onClick={this.onClickButton}>Iniciar Sesión</button>
       </Page>

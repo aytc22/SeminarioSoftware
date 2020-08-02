@@ -4,8 +4,9 @@ export default class extends Component {
   constructor() {
     super();
     this.state = {
-      email:'',
-      password:'',
+      correo:'',
+      contraseña:'',
+      nombre:'',
     }
 
     this.onClickButton = this.onClickButton.bind(this);
@@ -30,16 +31,20 @@ export default class extends Component {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
         <fieldset>
         <label>Correo Electrónico</label>
-        <input type="email" name="email" onChange={this.onTextChange} value={this.state.email} />
+        <input type="email" name="correo" onChange={this.onTextChange} value={this.state.correo} />
         </fieldset>
         <fieldset>
-          <label>Password</label>
-          <input type="password" name="password" onChange={this.onTextChange} value={this.state.password} />
+          <label>Contraseña</label>
+          <input type="password" name="contraseña" onChange={this.onTextChange} value={this.state.contraseña} />
+        </fieldset>
+        <fieldset>
+        <label>Nombre completo</label>
+          <input type="text" name="nombre" onChange={this.onTextChange} value={this.state.nombre} />
         </fieldset>
         <button onClick={this.onClickButton}>Sign In</button>
-        {this.state.email}
+        {this.state.correo}
         <br/>
-        {this.state.password}
+        {this.state.contraseña}
       </Page>
     )
   }
