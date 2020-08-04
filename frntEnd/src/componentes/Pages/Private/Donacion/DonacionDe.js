@@ -7,12 +7,6 @@ import {saxios} from '../../../Utilities/Utilities';
 
 import './DonacionD.css';
 export default class DonacionDe extends Component {
-  /*
-  1) Capturar los eventos de los botones
-  2) Repasar el evento para capturar los datos del formulario
-  3) Validaciones de Datos y como desplegarlo en el componente
-  4) Usar axios para llegar al API.
-   */
   constructor() {
     super();
     this.state = {
@@ -33,10 +27,6 @@ export default class DonacionDe extends Component {
   }
   onChangeHandler(e) {
     const { name, value } = e.currentTarget;
-    /*let errors = this.validate({ [name]: value });
-    if (!errors) {
-      errors = { [name + "Error"]: '' };
-    }*/
     this.setState({
       ...this.state,
       [name]: value,
@@ -83,7 +73,7 @@ export default class DonacionDe extends Component {
           value={this.state.Id}
           type="text"
           onChange={this.onChangeHandler}
-          //error={this.state.IdError}
+         
         />
         <Field
           name="NombreCompleto"
@@ -91,7 +81,7 @@ export default class DonacionDe extends Component {
           value={this.state.NombreCompleto}
           type="text"
           onChange={this.onChangeHandler}
-          //error={this.state.NombreError}
+       
         />
         <Field
           name="Telefono"
@@ -99,7 +89,7 @@ export default class DonacionDe extends Component {
           value={this.state.Telefono}
           type="text"
           onChange={this.onChangeHandler}
-          //error={this.state.TelefonoError}
+     
         />
         <Field
           name="Direccion"
@@ -107,7 +97,7 @@ export default class DonacionDe extends Component {
           value={this.state.Direccion}
           type="text"
           onChange={this.onChangeHandler}
-          //error={this.state.DireccionError}
+      
         />
         <Field
           name="Donacion"
@@ -115,7 +105,7 @@ export default class DonacionDe extends Component {
           value={this.state.Donacion}
           type="text"
           onChange={this.onChangeHandler}
-          //error={this.state.DescripcionError}
+        
         />
         <Actions>
           <button onClick={this.onClickButton}>Registrar</button>

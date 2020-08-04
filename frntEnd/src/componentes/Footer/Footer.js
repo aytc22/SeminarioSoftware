@@ -9,8 +9,6 @@ export default class Footer extends Component{
     this.state = {
       counter:0
     }
-    //Cualquier propio que ocupemos en una clase requiere
-    // realizar el bind para poder acceder al estado y al api del componente.
     this.counterUpdate = this.counterUpdate.bind(this);
     this.logoutOnClick = this.logoutOnClick.bind(this);
   }

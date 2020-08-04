@@ -26,24 +26,6 @@ module.exports = (db)=>{
     seguridadCollection.find({projection:projection}).toArray(handler);
   }
 
-  /*
-  seguridadModel.getAllEmpresa = (empresa, handler)=>{
-    // handler(err, docs)
-    var projection = { "DescCorta": 1, "DescLong": 1, "Precio":1, "Categoria":1};
-    seguridadCollection.find({Empresa:empresa},{projection:projection}).toArray(handler);
-  }
-
-  seguridadModel.getAllCategoria = (categoria, handler)=>{
-    // handler(err, docs)
-    var projection = { "DescCorta": 1, "DescLong": 1, "Precio":1, "Empresa":1};
-    seguridadCollection.find({Categoria:categoria},{projection:projection}).toArray(handler);
-  }
-
-  seguridadModel.getAllTipos = (handler)=>{
-    // handler(err, docs)
-    seguridadCollection.distinct("Categoria").toArray(handler);
-  }*/
-
   seguridadModel.addNew = (dataToAdd, handler)=>{
     var {id, NombreCompleto, Telefono, Direccion, Donacion} = dataToAdd;
     var userToAdd = Object.assign(
@@ -64,7 +46,7 @@ module.exports = (db)=>{
       }
       console.log(rslt);
       return handler(null, rslt.ops[0]);
-    }); //insertOner
+    }); //insertOne
   }
 
   seguridadModel.update = ( dataToUpdate , handler )=>{
@@ -130,7 +112,7 @@ module.exports = (db)=>{
         }
         return handler(null, rslt.result);
       }
-    ); //deleteOne
+    ); //deleteone
   }
 
   seguridadModel.getById = (id, handler) => {
@@ -143,7 +125,7 @@ module.exports = (db)=>{
         }
         return handler(null, doc);
       }
-    ); //findOne
+    ); 
   }
 
 
@@ -151,23 +133,6 @@ module.exports = (db)=>{
     return bcrypt.compareSync(raw, hash);
   }
 
-  /*
-  seguridadModel.getByEmpresa = (empresa, handler)=>{
-    var query = {"Empresa":empresa};
-    var projection = { "DescCorta": 1, "DescLong": 1, "Precio":1, "Categoria":1};
-    seguridadCollection.findOne(
-      query,
-      {"projection":projection},
-      (err, user)=>{
-        if(err){
-          return handler(err,null);
-        }
-        return handler(null, user);
-      }
-    )
-  }*/
-
-  
   seguridadModel.getProductByFilter = async (_page, _itemsPerPage, _sortBy, handler) => {
     var page = _page || 1;
     var itemsPerPage = _itemsPerPage || 10;
@@ -185,19 +150,6 @@ module.exports = (db)=>{
 
     });
   };
-/*
-  seguridadModel.addStockToProduct = (id, stockAmount, handler) => {
-    var filter = {"_id": new ObjectID(id)};
-    var updateCmd = {"$inc": {"stock": stockAmount}};
-    prdColl.findOneAndUpdate(filter, updateCmd, { returnOriginal: false }, (err, rslt)=>{
-        if(err){
-          console.log(err);
-          return handler(err, null);
-        } else {
-          return handler(null, rslt.value);
-        }
-    })
-  }; //addStockToProduct*/
 
   return seguridadModel;
 }

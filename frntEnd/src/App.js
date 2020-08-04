@@ -10,7 +10,6 @@ import Signin from './componentes/Pages/Public/SignIn/SignIn';
 import Home2 from './componentes/Pages/Public/Home2/index';
 import DonacionList from './componentes/Pages/Private/Donacion/DonacionList';
 import Registro from './componentes/Pages/Private/Donacion/DonacionDe';
-//import PLatilloDetail from './componentes/Pages/Private/Donacion/PlatilloDetail';
 
 class App extends Component {
   constructor(){
@@ -79,4 +78,3 @@ class App extends Component {
 }
 
 export default App;
-//<PrivateRoute component={PLatilloDetail} path="/platillos/:id" exact  auth={auth} />

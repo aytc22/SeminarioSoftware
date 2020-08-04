@@ -14,7 +14,7 @@ function initTest(db){
         return res.status(200).json(docs);
       }
     );
-  } );//get all
+  } );
   return router;
 }
 

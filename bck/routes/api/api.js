@@ -24,14 +24,10 @@ passport.use(
 function initApi(db){
 
     var seguridadRouter = require('./seguridad/seguridad')(db);
-    var empresaRouter = require('./empresa/empresa')(db);
-    var consumerRouter = require('./consumer/consumer')(db);
     var foodRouter = require('./Donaciones/Donacion')(db);
 
 
     router.use('/seguridad', seguridadRouter);
-    router.use('/empresa', empresaRouter);
-    router.use('/consumer', consumerRouter);
     router.use('/donaciones', foodRouter);
 
     var jwtAuthMiddleware = passport.authenticate('jwt',{session:false});
