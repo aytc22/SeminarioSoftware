@@ -9,8 +9,8 @@ import Login from './componentes/Pages/Public/Login/Login';
 import Signin from './componentes/Pages/Public/SignIn/SignIn';
 import Home2 from './componentes/Pages/Public/Home2/index';
 import DonacionList from './componentes/Pages/Private/Donacion/DonacionList';
-import Registro from './componentes/Pages'
-import PLatilloDetail from './componentes/Pages/Private/Donacion/PlatilloDetail';
+import Registro from './componentes/Pages/Private/Donacion/DonacionDe';
+//import PLatilloDetail from './componentes/Pages/Private/Donacion/PlatilloDetail';
 
 class App extends Component {
   constructor(){
@@ -70,7 +70,7 @@ class App extends Component {
           <PrivateRoute component={Home2} path="/home2" exact auth={auth} />
           <PrivateRoute component={DonacionList} path="/donaciones" exact auth={auth} />
           <PrivateRoute component={Registro} path="/registro" exact auth={auth} />
-          <PrivateRoute component={PLatilloDetail} path="/platillos/:id" exact  auth={auth} />
+          
         </Switch>
         </div>
       </Router>
@@ -79,3 +79,4 @@ class App extends Component {
 }
 
 export default App;
+//<PrivateRoute component={PLatilloDetail} path="/platillos/:id" exact  auth={auth} />

@@ -74,7 +74,7 @@ export default class Platillos extends Component {
     </div>);
 
   return (
-    <Page pageTitle="Realiza tu donación" auth={this.props.auth}>
+    <Page pageTitle="Donaciones" auth={this.props.auth}>
       <div className="list" ref={(ref)=> this.scrollParentRef = ref}>
           <InfiniteScroll
             pageStart={0}
