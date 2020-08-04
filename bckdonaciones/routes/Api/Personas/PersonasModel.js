@@ -28,9 +28,9 @@ module.exports = class{
         }
     }
 
-    static async addOne( id, nombre, telefono, direccion) {
+    static async addOne(id, nombre, telefono, direccion) {
         try{
-          const nueUsu = {Id:id, NombreCompleto:nombre, Telefono:telefono, Dirección:direccion};
+          const nueUsu = {id:id, nombre:nombre, telefono:telefono, direccion:direccion};
           const res = await usuCol.insertOne(nueUsu);
           return res;
         }catch(err){
@@ -66,9 +66,9 @@ module.exports = class{
         var query = { "_id": new ObjectID(_id)};
         var updateCommad = {
           "$set":{
-            NombreCompleto: nombre,
-            Telefono: telefono,
-            Dirección: direccion
+            nombre: nombre,
+            telefono: telefono,
+            direccion: direccion
           },
           "$inc" :{
             "updates": 1
@@ -84,5 +84,24 @@ module.exports = class{
             return handler(null, rslt.result);
           }
         );
+      }
+
+      static async getFacet(page, poolNumber) {
+        try {
+          if (usuCol) {
+            
+            let registro = await usuCol.find();
+            let totalDocs = await registro.count();
+            const limiteInferior = page * poolNumber;
+            registro.skip(limiteInferior);
+            registro.limit(poolNumber);
+            const personas = await registro.toArray();
+            return {personas:personas, total:totalDocs};
+          }
+          return { personas: [], total: 0};
+        } catch (err) {
+          console.log(err);
+          return err;
+        }
       }
 }

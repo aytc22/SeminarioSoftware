@@ -66,5 +66,16 @@ router.delete("/del/:id", async(req, res)=>{
   }
 });//DELETE /api/Personas/del/:id
 
+router.get('/facet/:page/:items' , async (req, res)=>{
+  try{
+    const {page, items} = req.params;
+    let facetResult = await perModel.getFacet(parseInt(page), parseInt(items));
+    res.status(200).json(facetResult);
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ "Error": "Algo Sucedio Mal intentar de nuevo." });
+  }
+});
+
 
 module.exports = router;

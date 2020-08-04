@@ -32,7 +32,7 @@ export default class extends Component {
   }
   render() {
     if(this.state.redirectTo){
-      const tourl = (this.props.location.state) ? this.props.location.state.from.pathname: '/login';
+      const tourl = (this.props.location.state) ? this.props.location.state.from.pathname: '/';
       return(
         <Redirect to={tourl}/>
       )

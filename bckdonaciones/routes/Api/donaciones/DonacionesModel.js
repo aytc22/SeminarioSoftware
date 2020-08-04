@@ -94,4 +94,23 @@ module.exports = class{
           }
         );
       }
+
+      static async getFacet(page, poolNumber) {
+        try {
+          if (donaCol) {
+            
+            let registro = await donaCol.find();
+            let totalDocs = await registro.count();
+            const limiteInferior = page * poolNumber;
+            registro.skip(limiteInferior);
+            registro.limit(poolNumber);
+            const donacion = await registro.toArray();
+            return {Donaciones:donacion, total:totalDocs};
+          }
+          return { Donaciones: [], total: 0};
+        } catch (err) {
+          console.log(err);
+          return err;
+        }
+      }
 }

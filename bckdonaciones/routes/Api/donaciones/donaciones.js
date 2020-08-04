@@ -75,4 +75,16 @@ router.delete('/del/:id', async(req, res)=>{
     }
 });//Ruta DELETE /api/Donaciones/del/:id
 
+router.get('/facet/:page/:items' , async (req, res)=>{
+  try{
+    const {page, items} = req.params;
+    let facetResult = await donaModel.getFacet(parseInt(page), parseInt(items));
+    console.log(facetResult);
+    res.status(200).json(facetResult);
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ "Error": "Algo Sucedio Mal intentar de nuevo." });
+  }
+});
+
 module.exports = router;

@@ -9,10 +9,13 @@ import './App.css';
 
 
 
-import Home from './Componentes/Content/Home';
+import Home from './Componentes/Content/Home/index';
+import Home2 from './Componentes/Content/Home2/inicio';
 import Login from './Componentes/Content/Login';
 import SingIn from './Componentes/Content/SingIn';
 import Donaciones from './Componentes/Content/Donaciones/donaciones';
+import Personas from './Componentes/Content/Personas/personas';
+import Persona from './Componentes/Content/Personas/persona';
 
 export default class extends Component{
   constructor (){
@@ -83,9 +86,12 @@ export default class extends Component{
       <Router>
         <Switch>
           <NRoute path="/" component={Home} exact auth={auth}/>
+          <NRoute path="/inicio" component={Home2} exact auth={auth}/>
           <NRoute path="/login" component={Login} exact auth={auth}/>
           <NRoute path="/signin" component={SingIn} exact auth={auth}/>
-          <PRoute path="/donaciones" component={Donaciones} exact auth={auth}/>
+          <PRoute path="/donaciones" auth={this.state.auth} component={Donaciones}/>
+          <PRoute path="/personas" component={Personas} exact auth={auth}/>
+          <PRoute path="/persona/:id" component={Persona} exact auth={auth}/>
         </Switch>
       </Router>
     );
