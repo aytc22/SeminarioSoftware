@@ -127,7 +127,6 @@ export default class Login extends Component {
         />
         <Actions>
           <button onClick={this.onClickCreateAccount}>Crear Cuenta</button>
-          <button onClick={this.onClickLogin}>Iniciar Sesión</button>
         </Actions>
       </Page>
     );

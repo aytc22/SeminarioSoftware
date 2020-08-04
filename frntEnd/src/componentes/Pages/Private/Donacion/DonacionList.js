@@ -55,14 +55,6 @@ export default class Platillos extends Component {
           <span>{item.Telefono}</span>
           <span>{item.Direccion}</span>
           <span>{item.Donacion}</span>
-          <span className='updateListItem'>
-            <Link to={`/platillos/${item._id}`}>
-              <IoIosInformationCircleOutline size='2em'/>
-            </Link>
-            <Link to={`/platillos/img/${item._id}`}>
-              <IoIosImage size='2em' />
-            </Link>
-          </span>
         </div>);
     }
   );
